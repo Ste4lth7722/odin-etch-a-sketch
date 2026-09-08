@@ -1,20 +1,40 @@
-const GRID_HEIGHT = 16;
-const GRID_WIDTH = 16;
-
-function generateGrid() {
+function generateGrid(gridWidth, gridHeight) {
     const gridContainer = document.querySelector(".grid-container");
-    for (let i = 0; i < GRID_HEIGHT; i++) {
+    if (gridContainer.children >= 1){
+        const gridRows = document.querySelectorAll(".grid-row");
+        gridRows.forEach(remove());
+    }
+
+    for (let i = 0; i < gridHeight; i++) {
         const gridRow = document.createElement("section");
         gridRow.className = "grid-row";
-        for (let j = 0; j < GRID_WIDTH; j++) {
+        for (let j = 0; j < gridWidth; j++) {
             const newTile = document.createElement("div");
-            newTile.className = "div-tile";
-            newTile.style.backgroundColor = "lightpink";
-            newTile.style.padding = "100px";
+            newTile.className = "grid-tile";
             gridRow.appendChild(newTile);
         }
         gridContainer.appendChild(gridRow);
     }
+
+    gridContainer.addEventListener("mouseover", lightUpTile);
 }
 
-generateGrid();
+function lightUpTile(e){
+    if (e.target.classList.contains("grid-row")){
+        return;
+    }
+    e.target.classList.add("hovered");
+}
+
+function resizeGrid() {
+    let newWidth = prompt("Enter new width and height");
+    let newHeight = newWidth;
+
+    generateGrid(newWidth, newHeight);
+}
+
+generateGrid(16, 16);
+
+const resizeButton = document.querySelector(".resize-button");
+resizeButton.addEventListener("click", resizeGrid)
+

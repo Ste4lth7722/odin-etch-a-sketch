@@ -1,10 +1,29 @@
-.div-tile {
-    border-style: solid;
-    border-width: 5px;
-    border-color: black;
-    flex: 1;
+.resize-button {
+    padding: 16px;
+    border-radius: 8px;
+    background-color: darkslateblue;
+}
+
+.grid-row {
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.grid-tile {
+    flex: 0 1 auto;
+    display: flex;
+    padding: 2vh;
+    gap: 32px;
+    background-color: rgb(164, 165, 175);
 }
 
 .grid-container {
     display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.hovered {
+    background-color: lightpink;
 }
