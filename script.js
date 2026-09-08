@@ -13,6 +13,7 @@ function generateGrid(gridWidth, gridHeight) {
         for (let j = 0; j < gridWidth; j++) {
             const newTile = document.createElement("div");
             newTile.className = "grid-tile";
+            newTile.style.opacity = 1;
             gridRow.appendChild(newTile);
         }
         gridContainer.appendChild(gridRow);
@@ -27,6 +28,10 @@ function lightUpTile(e){
         let gValue = Math.floor(Math.random() * 255);
         let bValue = Math.floor(Math.random() * 255);
         e.target.style.backgroundColor = `rgb(${rValue}, ${gValue}, ${bValue})`;
+        e.target.style.opacity -= 0.1;
+        if (e.target.style.opacity < 0){
+            e.target.style.opacity = 0;
+        }
     }
 }
 

@@ -24,6 +24,7 @@
     flex-direction: column;
     height: 85vh;
     aspect-ratio: 1;
+    background-color: black;
 }
 
 .hovered {
