@@ -5,15 +5,15 @@
 }
 
 .grid-row {
-    flex: 0 1 auto;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: row;
 }
 
 .grid-tile {
-    flex: 0 1 auto;
+    flex: 1 1 auto;
     display: flex;
-    padding: 2vh;
+    padding: auto;
     gap: 32px;
     background-color: rgb(164, 165, 175);
 }
@@ -21,7 +21,8 @@
 .grid-container {
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    height: 85vh;
+    aspect-ratio: 1;
 }
 
 .hovered {

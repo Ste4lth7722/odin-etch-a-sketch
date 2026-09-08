@@ -1,8 +1,10 @@
 function generateGrid(gridWidth, gridHeight) {
     const gridContainer = document.querySelector(".grid-container");
-    if (gridContainer.children >= 1){
+    const gridRows = document.querySelectorAll(".grid-row")
+
+    if (gridRows.length >= 1) {
         const gridRows = document.querySelectorAll(".grid-row");
-        gridRows.forEach(remove());
+        gridRows.forEach((row) => row.remove());
     }
 
     for (let i = 0; i < gridHeight; i++) {
@@ -20,14 +22,16 @@ function generateGrid(gridWidth, gridHeight) {
 }
 
 function lightUpTile(e){
-    if (e.target.classList.contains("grid-row")){
-        return;
+    if (e.target.classList.contains("grid-tile")){
+        e.target.classList.add("hovered");
     }
-    e.target.classList.add("hovered");
 }
 
 function resizeGrid() {
     let newWidth = prompt("Enter new width and height");
+    while (newWidth < 1 || newWidth > 100) {
+        newWidth = prompt("Enter new width and height");
+    }
     let newHeight = newWidth;
 
     generateGrid(newWidth, newHeight);
