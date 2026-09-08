@@ -23,7 +23,10 @@ function generateGrid(gridWidth, gridHeight) {
 
 function lightUpTile(e){
     if (e.target.classList.contains("grid-tile")){
-        e.target.classList.add("hovered");
+        let rValue = Math.floor(Math.random() * 255);
+        let gValue = Math.floor(Math.random() * 255);
+        let bValue = Math.floor(Math.random() * 255);
+        e.target.style.backgroundColor = `rgb(${rValue}, ${gValue}, ${bValue})`;
     }
 }
 
